@@ -16,17 +16,16 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
-        /*
+
+#if WINDOWS
         builder.UseMauiApp<App>()
-            .ConfigureLifecycleEvents(events =>
-                {
-                events.AddWindows(win => win
-                        .OnWindowCreated((window) => {
-                            Console.WriteLine("hello");
-                        } )
-                     );
-            });
-        */
+        .ConfigureLifecycleEvents(events =>
+        {
+            events.AddWindows(win => win
+            .OnWindowCreated(WebviewMinimal.WinUI.App.WindowCreated)
+                             );
+        });
+#endif
 
         return builder.Build();
     }
