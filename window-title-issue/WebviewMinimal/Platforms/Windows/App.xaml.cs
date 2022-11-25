@@ -1,5 +1,6 @@
 ﻿using Microsoft.Maui.Controls;
 using Microsoft.Maui.Platform;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using System.Runtime.InteropServices;
 
@@ -38,7 +39,7 @@ public partial class App : MauiWinUIApplication
 
         System.Drawing.Bitmap bmp = (System.Drawing.Bitmap)System.Drawing.Image.FromFile(iconFile);
 
-        int experiment = 1;
+        int experiment = 4;
 
         if (experiment == 0)
         {
@@ -72,6 +73,12 @@ public partial class App : MauiWinUIApplication
             mainWindow.ExtendsContentIntoTitleBar = false;
             // sets title, but, see ??? for Japanese
             SetWindowText(mainWindow.WindowHandle, "Hello こんにちは World Test");
+        } 
+        else if (experiment == 4)
+        {
+            var p = appWindow.Presenter as OverlappedPresenter;
+            p.IsResizable = false;
+            var tb = appWindow.TitleBar;
         }
     }
 
