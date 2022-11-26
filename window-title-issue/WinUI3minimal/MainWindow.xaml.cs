@@ -29,15 +29,11 @@ namespace WinUI3minimal
         public MainWindow()
         {
             this.InitializeComponent();
-            this.Activated += MainWindow_Activated;
+
+            Title = "hello world こんにちは";
+            ExtendsContentIntoTitleBar = false;
         }
         
-
-        private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
-        {
-            Title = "hello world こんにちは";
-        }
-
         private void myButton_Click(object sender, RoutedEventArgs e)
         {
             myButton.Content = "Clicked";
